@@ -66,14 +66,20 @@
 
 	public function actualizarProducto(){
 			
-			$set = "codigo = '$this->Codigo', producto = '$this->Producto', precio = '$this->Precio', cantidad = '$this->Cantidad'";
-			$condicion = "id = '$this->id'";
-			if ($this->pdo->update("productos", $set, $condicion)){
-   			return true;
-			}
-			else{
-				return false;
-			}
+			// Verifica si existe el producto con ese ID
+    $existe = $this->pdo->Arreglos("SELECT id FROM productos WHERE id = '$this->id'");
+    if (!$existe || count($existe) === 0) {
+        // No existe el producto con ese ID
+        return false;
+    }
+
+    $set = "codigo = '$this->Codigo', producto = '$this->Producto', precio = '$this->Precio', cantidad = '$this->Cantidad'";
+    $condicion = "id = '$this->id'";
+    if ($this->pdo->update("productos", $set, $condicion)){
+        return true;
+    } else {
+        return false;
+    }
    	
 	}
 	public function leerDatos () {
