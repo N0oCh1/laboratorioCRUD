@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./index.css">
+  <script src="./index.js" defer></script> 
+</head>
+<body>
+  <main>
+    <section class="left">
+      <form id="form">
+        <input type="text" name="id" hidden id="id"/>
+        <div class="input-group">
+          <label for="code">Código:</label>
+          <input type="text" id="code" name="codigo" required>
+        </div>
+        <div class="input-group">
+          <label for="product">Producto:</label>
+          <input type="text" id="product" name="producto" required pattern="[A-Za-z]*">
+        </div>
+        <div class="input-group">
+          <label for="price">Precio:</label>
+          <input type="text" id="price" name="precio" required pattern="[0-9]+(\.[0-9]{1,2})?">
+        </div>
+        <div class="input-group">
+          <label for="quantity">Cantidad:</label>
+          <input type="number" id="quantity" name="cantidad" required>
+        </div>
+        <input id="input" type="submit" value="Registrar" name="mode">
+      </form>
+
+      <form id="form2">
+        <div class="input-group">
+          <label for="code">buscar por id:</label>
+          <input type="number" id="code" name="id" required>
+        </div>
+        <input type="submit" value="Buscar"/>
+      </form>
+    </section>
+
+    <section class="right">
+      <table id="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Aquí se agregarán las filas de la tabla -->
+           <tr>
+            <td>1</td>
+            <td>Producto 1</td>
+            <td>10.00</td>
+            <td>5</td>
+            <td>
+              <button class="edit" onclick="editarProducto()">Editar</button>
+              <button class="delete">Eliminar</button>
+            </td>
+           </tr>
+        </tbody>
+    </section>
+
+    <div id="alert" hidden>
+      test
+    </div>
+  </main>
+</body>
+</html>
+
